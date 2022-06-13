@@ -127,7 +127,7 @@ inq.prompt([{
 }]).then((answers) => {
     //Make a Manager using manager answers
     const manager = new Manager(answers.firstName, answers.employeeId, answers.email, answers.officeNumber)
-    employees.push(Manager);
+    employees.push(manager);
     promptForNextEmployee();
     
 })
