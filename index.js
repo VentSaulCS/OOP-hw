@@ -60,24 +60,28 @@ const addIntern = () => {
 ]).then((answers) => {
     //Make intern class from answers
     const intern = new Intern(answers.firstName, answers.employeeId, answers.email, answers.school);
-    employees.push(intern)
+    employees.push(intern);
     promptForNextEmployee();
 })
 }
 
 const generateHtml = (employee) => {
-    `<div>
+   return `<div>
         <h3>${employee.getName()}</h3>
-        <div>ID:${employee.getName()}</div>
-        <div>Email:${employee.getName()}</div>
+        <div>ID:${employee.getId()}</div>
+        <div>Email:${employee.getEmail()}</div>
     </div>`
+
+    
 }
-const promptForNextEmployee = () =>{
+
+
+const promptForNextEmployee = () => {
    inq.prompt([{
     message: 'Who would you like to add to your team?',
     type: 'list',
     choices: ['Engineer', 'Intern', 'Done'],
-    name: 'nextOperation',
+    name: 'nextOperation'
    }]).then((answers) => {
         // if(answers.nextOperation === 'Engineer'){
 
@@ -87,6 +91,7 @@ const promptForNextEmployee = () =>{
                 //Add Engineer;
                 addEngineer();
                 break;
+                
             }
             case 'Intern':{
                 //Add Intern
@@ -101,6 +106,7 @@ const promptForNextEmployee = () =>{
                     console.log(generateHtml(employee));
                 }
                 break;
+                
              }
         }      
    })  
